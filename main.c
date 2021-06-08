@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct TList
+typedef struct List
 {
   int info;
-  struct TList *next;
+  struct List *next;
   
-}TList;
+}List;
 
-int EmptyList(struct TList *Head)
+int EmptyList(struct List *Head)
 {
   return(Head == NULL);
 }
 
-TList * FormList(struct TList *Head)
+List * FormList(struct List *Head)
 {
-  struct TList newEl, curr;
+  struct List newEl, curr;
   int x;
 
   printf("Формирование списка. Окончание ввода - значение 999\n");
@@ -26,7 +26,7 @@ TList * FormList(struct TList *Head)
 
     if (x != 999)
     {
-      TList *newEl = (TList*)malloc(sizeof(TList));
+      List *newEl = (List*)malloc(sizeof(List));
       newEl->info = x;
       newEl->next = NULL;
 
@@ -36,7 +36,7 @@ TList * FormList(struct TList *Head)
       }
       else
       {
-        TList *curr = Head;
+        List *curr = Head;
 
         while (curr->next != NULL)
         {
@@ -53,9 +53,9 @@ TList * FormList(struct TList *Head)
 
 };
 
-void ViewList(struct TList *Head)
+void ViewList(struct List *Head)
 {
-  struct TList *newEl;
+  struct List *newEl;
 
   if (!EmptyList(Head))
   {
@@ -75,7 +75,7 @@ void ViewList(struct TList *Head)
 
 int main(void)
 {
-  TList *Head = NULL;
+  List *Head = NULL;
 
   Head = FormList(Head);
 
