@@ -8,12 +8,12 @@ typedef struct List
   
 }List;
 
-int EmptyList(struct List *Head)
+int is_empty(struct List *Head)
 {
   return(Head == NULL);
 }
 
-List * FormList(struct List *Head)
+List * form_list(struct List *Head)
 {
   struct List newEl, curr;
   int x;
@@ -53,11 +53,11 @@ List * FormList(struct List *Head)
 
 };
 
-void ViewList(struct List *Head)
+void view_list(struct List *Head)
 {
   struct List *newEl;
 
-  if (!EmptyList(Head))
+  if (!is_empty(Head))
   {
     newEl = Head;
     while (newEl != NULL)
@@ -77,9 +77,9 @@ int main(void)
 {
   List *Head = NULL;
 
-  Head = FormList(Head);
+  Head = form_list(Head);
 
-  ViewList(Head);
+  view_list(Head);
 
   return 0;
 };
